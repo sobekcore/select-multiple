@@ -3,5 +3,16 @@
   "description": "A replacement for native select multiple element.",
   "author": "sobekcore",
   "version": "0.0.0",
-  "license": "ISC"
+  "license": "ISC",
+  "main": "index.js",
+  "files": ["index.js"],
+  "scripts": {
+    "watch": "npx webpack watch --config webpack.config.js"
+  },
+  "devDependencies": {
+    "css-loader": "^6.7.1",
+    "style-loader": "^3.3.1",
+    "webpack": "^5.72.0",
+    "webpack-cli": "^4.9.2"
+  }
 }
