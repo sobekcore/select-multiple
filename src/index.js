@@ -13,6 +13,7 @@ if (typeof document !== 'undefined') {
 
       const input = document.createElement('div');
       input.setAttribute('role', 'input');
+      input.setAttribute('tabindex', '0');
       wrapper.append(input);
 
       const list = document.createElement('ul');
@@ -27,10 +28,35 @@ if (typeof document !== 'undefined') {
         item.setAttribute('role', 'option');
         item.innerText = option.innerText;
         list.append(item);
+
+        item.addEventListener('click', () => {
+          item.classList.toggle('hidden');
+          option.setAttribute('selected', 'selected');
+
+          const tag = document.createElement('tag');
+          tag.innerText = item.innerText;
+          input.append(tag);
+
+          tag.addEventListener('click', () => {
+            item.classList.toggle('hidden');
+            option.removeAttribute('selected');
+            tag.remove();
+          }, { once: true });
+        });
       }
 
       const { width } = list.getBoundingClientRect();
       input.style.width = `${width}px`;
+
+      wrapper.addEventListener('click', () => {
+        list.classList.add('visible');
+      });
+
+      document.addEventListener('click', (event) => {
+        if (!wrapper.contains(event.target)) {
+          list.classList.remove('visible');
+        }
+      });
     }
   });
 }

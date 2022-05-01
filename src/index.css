@@ -19,12 +19,28 @@
 }
 
 .select-multiple [role="input"] {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  padding: 4px;
   border: 1px solid var(--select-multiple-border-color);
   border-radius: 2px;
-  min-height: 19px;
+  min-height: 30px;
+}
+
+.select-multiple [role="input"] tag {
+  font-family: Arial;
+  font-size: var(--select-multiple-font-size);
+  color: var(--select-multiple-font-color);
+  border: 1px solid var(--select-multiple-border-color);
+  border-radius: 2px;
+  padding: 1px 2px;
+  user-select: none;
+  cursor: pointer;
 }
 
 .select-multiple ul {
+  visibility: hidden;
   position: absolute;
   list-style: none;
   user-select: none;
@@ -40,12 +56,20 @@
   margin: 0;
 }
 
+.select-multiple ul.visible {
+  visibility: visible;
+}
+
 .select-multiple ul li {
   font-family: Arial;
   font-size: var(--select-multiple-font-size);
   color: var(--select-multiple-font-color);
   padding: 1px 4px;
   min-height: 17px;
+}
+
+.select-multiple ul li.hidden {
+  display: none;
 }
 
 .select-multiple ul li:hover {
