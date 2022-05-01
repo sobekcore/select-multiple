@@ -11,14 +11,14 @@
   --select-multiple-font-color: #000000;
   --select-multiple-background-color: #ffffff;
   --select-multiple-border-color: #767676;
-  --select-multiple-shadow-color: #b6b6b6;
+  --select-multiple-shadow-color: #b9b9b9;
 }
 
 .select-multiple-hidden {
-  display: none;
+  display: none !important;
 }
 
-.select-multiple [role="input"] {
+.select-multiple div {
   display: flex;
   flex-wrap: wrap;
   gap: 4px;
@@ -28,7 +28,10 @@
   min-height: 30px;
 }
 
-.select-multiple [role="input"] tag {
+.select-multiple div tag {
+  display: flex;
+  align-items: center;
+  column-gap: 2px;
   font-family: Arial;
   font-size: var(--select-multiple-font-size);
   color: var(--select-multiple-font-color);
@@ -36,6 +39,13 @@
   border-radius: 2px;
   padding: 1px 2px;
   user-select: none;
+  cursor: default
+}
+
+.select-multiple div tag i {
+  width: 14px;
+  font-size: 20px;
+  line-height: 16px;
   cursor: pointer;
 }
 
