@@ -2,10 +2,11 @@
   "name": "select-multiple",
   "description": "A replacement for native select multiple element.",
   "author": "sobekcore",
-  "version": "0.0.0",
-  "license": "ISC",
+  "version": "0.0.1",
   "main": "index.js",
-  "files": ["index.js"],
+  "files": [
+    "index.js"
+  ],
   "scripts": {
     "watch": "npx webpack watch --config webpack.config.js"
   },
