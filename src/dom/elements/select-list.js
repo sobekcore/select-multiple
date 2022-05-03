@@ -1,8 +1,11 @@
-const createSelectList = (config) => {
-  const list = document.createElement('select-list');
-  list.setAttribute('role', 'listbox');
+import Enums from '@/services/enums';
+import { SelectElement } from '@/dom/elements/select-element';
 
-  return list;
-};
+class SelectList extends SelectElement {
+  constructor(attributes) {
+    const element = document.createElement(Enums.ELEMENT_SELECT_LIST);
+    super(element, attributes);
+  }
+}
 
-export { createSelectList };
+export { SelectList };

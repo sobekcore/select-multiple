@@ -10,7 +10,7 @@ module.exports = {
   },
   resolve: {
     alias: {
-      '@': join(ROOT_PATH, 'src/'),
+      '@': join(ROOT_PATH, 'src'),
     },
   },
   module: {

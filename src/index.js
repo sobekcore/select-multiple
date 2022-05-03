@@ -1,4 +1,4 @@
-import { buildOnTopOfSelect } from '@/dom/builder';
+import { SelectBuilder } from '@/dom/select-builder';
 import '@/styles/styles.css';
 
 class SelectMultiple {
@@ -10,19 +10,17 @@ class SelectMultiple {
     const elements = document.querySelectorAll('select[multiple]');
 
     for (const element of elements) {
-      if (element instanceof HTMLSelectElement) {
-        buildOnTopOfSelect(element, this.config);
-      }
+      const builder = new SelectBuilder(element, this.config);
+      builder.buildOnTopOfSelect();
     }
   }
 
   transform(element) {
-    if (!(element instanceof HTMLSelectElement)) {
-      throw new ReferenceError('Provided element is not a <select> element instance');
-    }
-
-    buildOnTopOfSelect(element, this.config);
+    const builder = new SelectBuilder(element, this.config);
+    builder.buildOnTopOfSelect();
   }
 }
+
+window.SelectMultiple = SelectMultiple;
 
 export { SelectMultiple };

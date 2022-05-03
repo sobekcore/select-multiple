@@ -1,9 +1,11 @@
-const createSelectInput = (config) => {
-  const input = document.createElement('select-input');
-  input.setAttribute('role', 'input');
-  input.setAttribute('tabindex', '0');
+import Enums from '@/services/enums';
+import { SelectElement } from '@/dom/elements/select-element';
 
-  return input;
-};
+class SelectInput extends SelectElement {
+  constructor(attributes) {
+    const element = document.createElement(Enums.ELEMENT_SELECT_INPUT);
+    super(element, attributes);
+  }
+}
 
-export { createSelectInput };
+export { SelectInput };

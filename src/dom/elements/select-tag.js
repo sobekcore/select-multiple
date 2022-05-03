@@ -1,6 +1,11 @@
-const createSelectTag = (config) => {
-  const tag = document.createElement('select-tag');
-  return tag;
-};
+import Enums from '@/services/enums';
+import { SelectElement } from '@/dom/elements/select-element';
 
-export { createSelectTag };
+class SelectTag extends SelectElement {
+  constructor(attributes) {
+    const element = document.createElement(Enums.ELEMENT_SELECT_TAG);
+    super(element, attributes);
+  }
+}
+
+export { SelectTag };

@@ -1,11 +1,11 @@
 import Enums from '@/services/enums';
+import { SelectElement } from '@/dom/elements/select-element';
 
-const createSelectListItem = (config) => {
-  const item = document.createElement('select-item');
-  item.setAttribute('role', 'option');
-  item.setAttribute(Enums.ELEMENT_VISIBILITY, true);
+class SelectItem extends SelectElement {
+  constructor(attributes) {
+    const element = document.createElement(Enums.ELEMENT_SELECT_ITEM);
+    super(element, attributes);
+  }
+}
 
-  return item;
-};
-
-export { createSelectListItem };
+export { SelectItem };
