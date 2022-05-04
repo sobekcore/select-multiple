@@ -1,6 +1,7 @@
-import Enums from "@/services/enums";
+import Enums from '@/services/enums';
 
 const Attributes = {
+  [Enums.ELEMENT_SELECT_MULTIPLE]: {},
   [Enums.ELEMENT_SELECT_INPUT]: {
     [Enums.ATTRIBUTES_COMMON]: [
       {

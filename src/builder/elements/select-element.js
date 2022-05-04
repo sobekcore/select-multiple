@@ -1,4 +1,4 @@
-import Enums from "@/services/enums";
+import Enums from '@/services/enums';
 
 class SelectElement {
   constructor(element, attributes) {
@@ -21,6 +21,10 @@ class SelectElement {
 
   visibility(visible) {
     this.element.setAttribute(Enums.ATTRIBUTE_VISIBILITY, visible);
+  }
+
+  remove() {
+    this.element.remove();
   }
 }
 

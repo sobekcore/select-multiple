@@ -1,4 +1,5 @@
 const Enums = {
+  ELEMENT_SELECT_BASE: 'select',
   ELEMENT_SELECT_MULTIPLE: 'select-multiple',
   ELEMENT_SELECT_INPUT: 'select-input',
   ELEMENT_SELECT_LIST: 'select-list',

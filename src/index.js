@@ -1,4 +1,4 @@
-import { SelectBuilder } from '@/dom/select-builder';
+import { SelectBuilder } from '@/builder/select-builder';
 import '@/styles/styles.css';
 
 class SelectMultiple {

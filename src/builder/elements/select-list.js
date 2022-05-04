@@ -1,5 +1,5 @@
 import Enums from '@/services/enums';
-import { SelectElement } from '@/dom/elements/select-element';
+import { SelectElement } from '@/builder/elements/select-element';
 
 class SelectList extends SelectElement {
   constructor(attributes) {
