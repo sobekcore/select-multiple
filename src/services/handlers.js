@@ -6,17 +6,17 @@ import { SelectTag } from '@/builder/elements/select-tag';
 import { SelectRemove } from '@/builder/elements/select-remove';
 
 const Handlers = {
-  [Enums.ELEMENT_SELECT_MULTIPLE]: (instances) => {
+  [Enums.ELEMENT_SELECT_MULTIPLE]: (instances, config) => {
     const select = instances[Enums.ELEMENT_SELECT_BASE];
     const wrapper = instances[Enums.ELEMENT_SELECT_MULTIPLE];
     select.before(wrapper.element);
   },
-  [Enums.ELEMENT_SELECT_INPUT]: (instances) => {
+  [Enums.ELEMENT_SELECT_INPUT]: (instances, config) => {
     const wrapper = instances[Enums.ELEMENT_SELECT_MULTIPLE];
     const input = instances[Enums.ELEMENT_SELECT_INPUT];
     wrapper.element.append(input.element);
   },
-  [Enums.ELEMENT_SELECT_LIST]: (instances) => {
+  [Enums.ELEMENT_SELECT_LIST]: (instances, config) => {
     const wrapper = instances[Enums.ELEMENT_SELECT_MULTIPLE];
     const list = instances[Enums.ELEMENT_SELECT_LIST];
     wrapper.element.append(list.element);
@@ -31,7 +31,7 @@ const Handlers = {
       }
     });
   },
-  [Enums.ELEMENT_SELECT_ITEM]: (instances) => {
+  [Enums.ELEMENT_SELECT_ITEM]: (instances, config) => {
     const select = instances[Enums.ELEMENT_SELECT_BASE];
     const list = instances[Enums.ELEMENT_SELECT_LIST];
     const input = instances[Enums.ELEMENT_SELECT_INPUT];

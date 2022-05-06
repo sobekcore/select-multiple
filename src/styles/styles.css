@@ -1,3 +1,7 @@
+/**
+ * All the necessary styles for a select-multiple package
+ */
+
 select-multiple *, select-multiple *::before, select-multiple *::after {
   box-sizing: border-box;
 }
@@ -5,13 +9,19 @@ select-multiple *, select-multiple *::before, select-multiple *::after {
 select-multiple {
   position: relative;
   display: inline-block;
-  z-index: 1;
 
-  --select-multiple-font-size: 13.3333px;
   --select-multiple-font-color: #000000;
   --select-multiple-background-color: #ffffff;
   --select-multiple-border-color: #767676;
   --select-multiple-shadow-color: #b9b9b9;
+
+  --select-multiple-font-size: 13.3333px;
+
+  --select-multiple-tag-height: 20px;
+  --select-multiple-tag-gap: 4px;
+
+  --select-multiple-list-height: 206px;
+  --select-multiple-item-height: 17px;
 }
 
 select-multiple + select[multiple] {
@@ -21,11 +31,26 @@ select-multiple + select[multiple] {
 select-multiple select-input {
   display: flex;
   flex-wrap: wrap;
-  gap: 4px;
-  padding: 4px;
+  gap: var(--select-multiple-tag-gap);
+  background: var(--select-multiple-background-color);
   border: 1px solid var(--select-multiple-border-color);
   border-radius: 2px;
   min-height: 30px;
+  padding: 4px;
+}
+
+select-multiple select-input::before {
+  content: attr(data-placeholder) "\200B";
+  line-height: var(--select-multiple-tag-height);
+  opacity: 0.5;
+}
+
+select-multiple select-input:not(:empty)::before {
+  content: "\200B"; /* Zero-width space */
+}
+
+select-multiple select-input select-tag:first-child {
+  margin-left: calc(-1 * var(--select-multiple-tag-gap));
 }
 
 select-multiple select-input select-tag {
@@ -35,10 +60,10 @@ select-multiple select-input select-tag {
   font-family: Arial;
   font-size: var(--select-multiple-font-size);
   color: var(--select-multiple-font-color);
+  height: var(--select-multiple-tag-height);
   border: 1px solid var(--select-multiple-border-color);
   border-radius: 2px;
   padding: 1px 2px;
-  user-select: none;
   cursor: default
 }
 
@@ -46,6 +71,7 @@ select-multiple select-input select-tag select-remove {
   width: 14px;
   font-size: 20px;
   line-height: 16px;
+  user-select: none;
   cursor: pointer;
 }
 
@@ -54,15 +80,16 @@ select-multiple select-list {
   position: absolute;
   list-style: none;
   user-select: none;
-  width: 100%;
-  min-width: min-content;
-  max-height: 206px;
   overflow-y: scroll;
   background: var(--select-multiple-background-color);
   box-shadow: 0 0 16px var(--select-multiple-shadow-color);
   border: 1px solid var(--select-multiple-border-color);
+  max-height: var(--select-multiple-list-height);
+  min-width: min-content;
+  width: 100%;
   padding: 0;
   margin: 0;
+  z-index: 1;
 }
 
 select-multiple select-list[data-visible="true"] {
@@ -74,8 +101,8 @@ select-multiple select-list select-item {
   font-family: Arial;
   font-size: var(--select-multiple-font-size);
   color: var(--select-multiple-font-color);
+  min-height: var(--select-multiple-item-height);
   padding: 1px 4px;
-  min-height: 17px;
 }
 
 select-multiple select-list select-item[data-visible="false"] {

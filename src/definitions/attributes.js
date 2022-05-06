@@ -1,5 +1,10 @@
 import Enums from '@/services/enums';
 
+/**
+ * Attributes definiton is a source of attributes given to HTML elements
+ *
+ * @var {Object} Attributes
+ */
 const Attributes = {
   [Enums.ELEMENT_SELECT_MULTIPLE]: {},
   [Enums.ELEMENT_SELECT_INPUT]: {
