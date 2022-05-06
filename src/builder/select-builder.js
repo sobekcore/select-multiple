@@ -11,33 +11,25 @@ class SelectBuilder {
       throw new TypeError('Provided element is not an instance of HTMLSelectElement');
     }
 
-    this.select = select;
     this.config = config;
+    this.select = select;
+    this.wrapper = null;
   }
 
   buildOnTopOfSelect() {
-    this.options = this.select.querySelectorAll('option');
-
     const bagOfInstances = {};
     const handlersToExecute = [];
 
-    // Add base select element that <select-multiple> is built on
     bagOfInstances[Enums.ELEMENT_SELECT_BASE] = this.select;
-
-    for (const [name, next] of Object.entries(Document)) {
-      const instance = new ElementToClass[name](Attributes[name]);
-      bagOfInstances[name] = instance;
-
-      if (Handlers[name] instanceof Function) {
-        handlersToExecute.push({ instance: instance, handler: Handlers[name] });
-      }
-
-      this.createChildElements(handlersToExecute, bagOfInstances, next);
-    }
+    this.createChildElements(handlersToExecute, bagOfInstances, Document);
 
     for (const handler of handlersToExecute) {
-      this.customElementHandler(handler.handler, bagOfInstances);
+      this.customElementHandler(handler, bagOfInstances);
     }
+  }
+
+  removeBuiltSelect() {
+    this.wrapper.remove();
   }
 
   createChildElements(handlersToExecute, bagOfInstances, children) {
@@ -45,8 +37,12 @@ class SelectBuilder {
       const instance = new ElementToClass[name](Attributes[name]);
       bagOfInstances[name] = instance;
 
+      if (this.wrapper === null) {
+        this.wrapper = instance;
+      }
+
       if (Handlers[name] instanceof Function) {
-        handlersToExecute.push({ instance: instance, handler: Handlers[name] });
+        handlersToExecute.push(Handlers[name]);
       }
 
       this.createChildElements(handlersToExecute, bagOfInstances, next);
@@ -54,7 +50,7 @@ class SelectBuilder {
   }
 
   customElementHandler(handler, bagOfInstances) {
-    handler(bagOfInstances);
+    handler(bagOfInstances, this.config);
   }
 }
 

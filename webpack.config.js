@@ -5,8 +5,10 @@ module.exports = {
   mode: 'production',
   entry: join(ROOT_PATH, 'src/index.js'),
   output: {
-    filename: 'index.js',
     path: ROOT_PATH,
+    filename: 'index.js',
+    libraryExport: 'default',
+    libraryTarget: 'umd',
   },
   resolve: {
     alias: {
