@@ -12,11 +12,14 @@ const Enums = {
   ATTRIBUTE_ROLE: 'role',
   ATTRIBUTE_VALUE: 'data-value',
   ATTRIBUTE_VISIBILITY: 'data-visible',
+  ATTRIBUTE_PLACEHOLDER: 'data-placeholder',
   ATTRIBUTE_TABINDEX: 'tabindex',
   ATTRIBUTE_TEXT: 'text',
   ATTRIBUTE_HTML: 'html',
 
   TAG_REMOVE_WIDTH: 16,
+
+  THEME_MODERN: 'modern',
 };
 
 export default Enums;

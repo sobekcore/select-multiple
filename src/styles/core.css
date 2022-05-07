@@ -11,9 +11,10 @@ select-multiple {
   display: inline-block;
 
   --select-multiple-font-color: #000000;
+  --select-multiple-font-invert-color: #000000;
   --select-multiple-background-color: #ffffff;
   --select-multiple-border-color: #767676;
-  --select-multiple-shadow-color: #b9b9b9;
+  --select-multiple-shadow-color: #00000040;
 
   --select-multiple-font-size: 13.3333px;
 
@@ -22,6 +23,15 @@ select-multiple {
 
   --select-multiple-list-height: 206px;
   --select-multiple-item-height: 17px;
+}
+
+@media (prefers-color-scheme: dark) {
+  select-multiple {
+    --select-multiple-font-color: #ffffff;
+    --select-multiple-font-invert-color: #000000;
+    --select-multiple-background-color: #3b3b3b;
+    --select-multiple-border-color: #858585;
+  }
 }
 
 select-multiple + select[multiple] {
@@ -41,7 +51,10 @@ select-multiple select-input {
 
 select-multiple select-input::before {
   content: attr(data-placeholder) "\200B";
+  color: var(--select-multiple-font-color);
   line-height: var(--select-multiple-tag-height);
+  font-size: var(--select-multiple-font-size);
+  font-family: Arial;
   opacity: 0.5;
 }
 
@@ -61,16 +74,17 @@ select-multiple select-input select-tag {
   font-size: var(--select-multiple-font-size);
   color: var(--select-multiple-font-color);
   height: var(--select-multiple-tag-height);
+  background: var(--select-multiple-background-color);
   border: 1px solid var(--select-multiple-border-color);
   border-radius: 2px;
-  padding: 1px 2px;
-  cursor: default
+  padding: 0 3px;
+  cursor: default;
 }
 
 select-multiple select-input select-tag select-remove {
   width: 14px;
   font-size: 20px;
-  line-height: 16px;
+  line-height: 20px;
   user-select: none;
   cursor: pointer;
 }
@@ -110,6 +124,7 @@ select-multiple select-list select-item[data-visible="false"] {
 }
 
 select-multiple select-list select-item:hover {
+  color: var(--select-multiple-font-invert-color);
   background: Highlight;
   cursor: pointer;
 }

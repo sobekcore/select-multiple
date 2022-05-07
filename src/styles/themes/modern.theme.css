@@ -1,0 +1,32 @@
+@media (prefers-color-scheme: dark) {
+  select-tag, select-item:hover {
+    color: var(--select-multiple-font-color);
+  }
+}
+
+select-input {
+  padding: 5px;
+  gap: 5px;
+}
+
+select-tag {
+  color: #ffffff;
+  background: #5897fb;
+  padding: 0 5px;
+  height: 24px;
+  border: none;
+}
+
+select-tag:first-child {
+  margin-left: -5px;
+}
+
+select-remove {
+  font-size: 24px;
+  line-height: 24px;
+}
+
+select-item:hover {
+  color: #ffffff;
+  background: #5897fb;
+}

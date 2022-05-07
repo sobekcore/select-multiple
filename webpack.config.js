@@ -1,4 +1,6 @@
+const TerserPlugin = require('terser-webpack-plugin');
 const { join } = require('path');
+
 const ROOT_PATH = __dirname;
 
 module.exports = {
@@ -7,6 +9,7 @@ module.exports = {
   output: {
     path: ROOT_PATH,
     filename: 'index.js',
+    library: 'SelectMultiple',
     libraryExport: 'default',
     libraryTarget: 'umd',
   },
@@ -15,14 +18,21 @@ module.exports = {
       '@': join(ROOT_PATH, 'src'),
     },
   },
+  optimization: {
+    minimizer: [
+      new TerserPlugin({
+        terserOptions: {
+          keep_classnames: true,
+        },
+      }),
+    ],
+  },
   module: {
     rules: [
       {
         test: /\.css$/,
-        use: [
-          'style-loader',
-          'css-loader',
-        ],
+        loader: 'css-loader',
+        options: { exportType: 'string' },
       },
     ],
   },
