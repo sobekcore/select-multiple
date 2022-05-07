@@ -1,11 +1,11 @@
 import Enums from '@/services/enums';
 
-import { SelectMultiple } from '@/builder/elements/select-multiple';
-import { SelectInput } from '@/builder/elements/select-input';
-import { SelectList } from '@/builder/elements/select-list';
-import { SelectItem } from '@/builder/elements/select-item';
-import { SelectTag } from '@/builder/elements/select-tag';
-import { SelectRemove } from '@/builder/elements/select-remove';
+import { SelectMultiple } from '@/components/builder/elements/select-multiple';
+import { SelectInput } from '@/components/builder/elements/select-input';
+import { SelectList } from '@/components/builder/elements/select-list';
+import { SelectItem } from '@/components/builder/elements/select-item';
+import { SelectTag } from '@/components/builder/elements/select-tag';
+import { SelectRemove } from '@/components/builder/elements/select-remove';
 
 const ElementToClass = {
   [Enums.ELEMENT_SELECT_MULTIPLE]: SelectMultiple,

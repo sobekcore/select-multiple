@@ -1,9 +1,9 @@
 import Attributes from '@/definitions/attributes';
 import Enums from '@/services/enums';
 
-import { SelectItem } from '@/builder/elements/select-item';
-import { SelectTag } from '@/builder/elements/select-tag';
-import { SelectRemove } from '@/builder/elements/select-remove';
+import { SelectItem } from '@/components/builder/elements/select-item';
+import { SelectTag } from '@/components/builder/elements/select-tag';
+import { SelectRemove } from '@/components/builder/elements/select-remove';
 
 const Handlers = {
   [Enums.ELEMENT_SELECT_MULTIPLE]: (instances, config) => {
@@ -12,9 +12,13 @@ const Handlers = {
     select.before(wrapper.element);
   },
   [Enums.ELEMENT_SELECT_INPUT]: (instances, config) => {
+    const select = instances[Enums.ELEMENT_SELECT_BASE];
     const wrapper = instances[Enums.ELEMENT_SELECT_MULTIPLE];
     const input = instances[Enums.ELEMENT_SELECT_INPUT];
     wrapper.element.append(input.element);
+
+    const placeholder = select.getAttribute('placeholder');
+    if (placeholder) input.element.setAttribute(Enums.ATTRIBUTE_PLACEHOLDER, placeholder);
   },
   [Enums.ELEMENT_SELECT_LIST]: (instances, config) => {
     const wrapper = instances[Enums.ELEMENT_SELECT_MULTIPLE];
