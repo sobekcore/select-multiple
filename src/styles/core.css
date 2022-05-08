@@ -38,6 +38,11 @@ select-multiple + select[multiple] {
   display: none !important;
 }
 
+select-multiple[data-loading="true"] *:not(select-input) {
+  visibility: hidden;
+  opacity: 0;
+}
+
 select-multiple select-input {
   display: flex;
   flex-wrap: wrap;
@@ -82,9 +87,8 @@ select-multiple select-input select-tag {
 }
 
 select-multiple select-input select-tag select-remove {
-  width: 14px;
-  font-size: 20px;
-  line-height: 20px;
+  font-size: var(--select-multiple-tag-height);
+  line-height: var(--select-multiple-tag-height);
   user-select: none;
   cursor: pointer;
 }

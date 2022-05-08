@@ -23,6 +23,10 @@ class SelectElement {
     this.element.setAttribute(Enums.ATTRIBUTE_VISIBILITY, visible);
   }
 
+  loading(state) {
+    this.element.setAttribute(Enums.ATTRIBUTE_LOADING, state);
+  }
+
   remove() {
     this.element.remove();
   }
