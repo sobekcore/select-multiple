@@ -2,7 +2,7 @@
   "name": "select-multiple",
   "description": "A replacement for native select multiple element.",
   "author": "sobekcore",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "main": "index.js",
   "files": [
     "index.js"
