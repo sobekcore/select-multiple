@@ -1,7 +1,7 @@
 import Enums from '@/services/enums';
-import { SelectBuilder } from '@/components/builder/select-builder';
-import { ConfigParser } from '@/components/parsers/config-parser';
-import { StyleParser } from '@/components/parsers/style-parser';
+import { SelectBuilder } from '@/modules/select-builder/select-builder';
+import { ConfigParser } from '@/modules/config-parser/config-parser';
+import { StyleParser } from '@/modules/style-parser/style-parser';
 import Core from '@/styles/core.css';
 
 class SelectMultiple {

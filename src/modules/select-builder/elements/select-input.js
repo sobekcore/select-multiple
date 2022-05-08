@@ -1,5 +1,5 @@
 import Enums from '@/services/enums';
-import { SelectElement } from '@/components/builder/elements/select-element';
+import { SelectElement } from '@/modules/select-builder/elements/select-element';
 
 class SelectInput extends SelectElement {
   constructor(attributes) {

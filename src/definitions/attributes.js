@@ -6,7 +6,14 @@ import Enums from '@/services/enums';
  * @var {Object} Attributes
  */
 const Attributes = {
-  [Enums.ELEMENT_SELECT_MULTIPLE]: {},
+  [Enums.ELEMENT_SELECT_MULTIPLE]: {
+    [Enums.ATTRIBUTES_COMMON]: [
+      {
+        name: Enums.ATTRIBUTE_LOADING,
+        value: true,
+      },
+    ],
+  },
   [Enums.ELEMENT_SELECT_INPUT]: {
     [Enums.ATTRIBUTES_COMMON]: [
       {

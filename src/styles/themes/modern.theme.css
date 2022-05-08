@@ -1,24 +1,28 @@
-@media (prefers-color-scheme: dark) {
-  select-tag, select-item:hover {
-    color: var(--select-multiple-font-color);
-  }
+select-multiple {
+  --select-multiple-custom-font-color: #ffffff;
+  --select-multiple-custom-background-color: #5897fb;
 }
 
 select-input {
-  padding: 5px;
-  gap: 5px;
+  min-height: 38px;
+  padding: 6px;
+  gap: 6px;
+}
+
+select-input::before {
+  line-height: 24px;
 }
 
 select-tag {
-  color: #ffffff;
-  background: #5897fb;
-  padding: 0 5px;
+  color: var(--select-multiple-custom-font-color);
+  background: var(--select-multiple-custom-background-color);
+  padding: 0 6px;
   height: 24px;
   border: none;
 }
 
 select-tag:first-child {
-  margin-left: -5px;
+  margin-left: -6px;
 }
 
 select-remove {
@@ -27,6 +31,6 @@ select-remove {
 }
 
 select-item:hover {
-  color: #ffffff;
-  background: #5897fb;
+  color: var(--select-multiple-custom-font-color);
+  background: var(--select-multiple-custom-background-color);
 }
