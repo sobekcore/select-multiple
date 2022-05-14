@@ -23,7 +23,7 @@ const createSelectListItems = (instances, config) => {
     const item = new SelectItem(SelectItemAttributes);
     list.element.append(item.element);
 
-    item.element.addEventListener('click', (event) => {
+    item.element.addEventListener(Enums.EVENT_CLICK, (event) => {
       item.visibility(false);
       option.setAttribute('selected', 'selected');
 
@@ -45,7 +45,7 @@ const createSelectListItems = (instances, config) => {
       const remove = new SelectRemove(SelectRemoveAttributes);
       tag.element.append(remove.element);
 
-      remove.element.addEventListener('click', () => {
+      remove.element.addEventListener(Enums.EVENT_CLICK, () => {
         item.visibility(true);
         option.removeAttribute('selected');
         tag.remove();
@@ -98,7 +98,7 @@ const applyConfigFullwidth = (instances, config) => {
 
 const finishWrapperCreation = (instances, config) => {
   const wrapper = instances[Enums.ELEMENT_SELECT_MULTIPLE];
-  wrapper.loading(false);
+  wrapper.loader(false);
 };
 
 const SelectItemHandler = (instances, config) => {

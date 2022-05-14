@@ -10,7 +10,7 @@ const openSelectListOnClick = (instances, config) => {
   const wrapper = instances[Enums.ELEMENT_SELECT_MULTIPLE];
   const list = instances[Enums.ELEMENT_SELECT_LIST];
 
-  wrapper.element.addEventListener('click', () => {
+  wrapper.element.addEventListener(Enums.EVENT_CLICK, () => {
     list.visibility(true);
   });
 };
@@ -19,7 +19,7 @@ const hideSelectListOnClickaway = (instances, config) => {
   const wrapper = instances[Enums.ELEMENT_SELECT_MULTIPLE];
   const list = instances[Enums.ELEMENT_SELECT_LIST];
 
-  document.addEventListener('click', (event) => {
+  document.addEventListener(Enums.EVENT_CLICK, (event) => {
     if (!wrapper.element.contains(event.target)) {
       list.visibility(false);
     }

@@ -63,6 +63,12 @@ select-multiple select-input::before {
   opacity: 0.5;
 }
 
+select-multiple select-input:focus {
+  outline: 2px solid var(--select-multiple-font-color);
+  outline-offset: -1px;
+  border-radius: 3px;
+}
+
 select-multiple select-input:not(:empty)::before {
   content: "\200B"; /* Zero-width space */
 }
@@ -89,8 +95,15 @@ select-multiple select-input select-tag {
 select-multiple select-input select-tag select-remove {
   font-size: var(--select-multiple-tag-height);
   line-height: var(--select-multiple-tag-height);
+  margin-right: -1px;
+  padding: 0 1px;
   user-select: none;
   cursor: pointer;
+}
+
+select-multiple select-input select-tag select-remove:focus-visible {
+  outline: 2px solid var(--select-multiple-font-color);
+  border-radius: 3px;
 }
 
 select-multiple select-list {
@@ -125,6 +138,12 @@ select-multiple select-list select-item {
 
 select-multiple select-list select-item[data-visible="false"] {
   display: none;
+}
+
+select-multiple select-list select-item:focus-visible {
+  outline: 2px solid var(--select-multiple-font-color);
+  outline-offset: -1px;
+  border-radius: 3px;
 }
 
 select-multiple select-list select-item:hover {
