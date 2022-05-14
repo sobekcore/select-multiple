@@ -45,13 +45,24 @@ const Attributes = {
         value: 'option',
       },
       {
+        name: Enums.ATTRIBUTE_TABINDEX,
+        value: -1,
+      },
+      {
         name: Enums.ATTRIBUTE_VISIBILITY,
         value: true,
       },
     ],
   },
   [Enums.ELEMENT_SELECT_TAG]: {},
-  [Enums.ELEMENT_SELECT_REMOVE]: {},
+  [Enums.ELEMENT_SELECT_REMOVE]: {
+    [Enums.ATTRIBUTES_COMMON]: [
+      {
+        name: Enums.ATTRIBUTE_TABINDEX,
+        value: -1,
+      },
+    ],
+  },
 };
 
 export default Attributes;

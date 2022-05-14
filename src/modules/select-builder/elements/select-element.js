@@ -19,12 +19,30 @@ class SelectElement {
     }
   }
 
-  visibility(visible) {
-    this.element.setAttribute(Enums.ATTRIBUTE_VISIBILITY, visible);
+  getChildrenByAttribute(attribute, value) {
+    return Array.from(this.element.children).filter((element) => {
+      return element.getAttribute(attribute) === value;
+    });
   }
 
-  loading(state) {
+  visibility(state) {
+    this.element.setAttribute(Enums.ATTRIBUTE_VISIBILITY, state);
+  }
+
+  isVisible() {
+    return this.element.getAttribute(Enums.ATTRIBUTE_VISIBILITY) === 'true';
+  }
+
+  loader(state) {
     this.element.setAttribute(Enums.ATTRIBUTE_LOADING, state);
+  }
+
+  isLoading() {
+    return this.element.getAttribute(Enums.ATTRIBUTE_LOADING) === 'true';
+  }
+
+  focus() {
+    this.element.focus();
   }
 
   remove() {

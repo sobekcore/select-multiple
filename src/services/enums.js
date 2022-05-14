@@ -1,4 +1,13 @@
 const Enums = {
+  KEYCODE_TAB: 'Tab',
+  KEYCODE_ESCAPE: 'Escape',
+  KEYCODE_ENTER: 'Enter',
+  KEYCODE_SPACE: 'Space',
+  KEYCODE_ARROW_UP: 'ArrowUp',
+  KEYCODE_ARROW_DOWN: 'ArrowDown',
+  KEYCODE_ARROW_LEFT: 'ArrowLeft',
+  KEYCODE_ARROW_RIGHT: 'ArrowRight',
+
   ELEMENT_SELECT_BASE: 'select',
   ELEMENT_SELECT_MULTIPLE: 'select-multiple',
   ELEMENT_SELECT_INPUT: 'select-input',
@@ -6,6 +15,11 @@ const Enums = {
   ELEMENT_SELECT_ITEM: 'select-item',
   ELEMENT_SELECT_TAG: 'select-tag',
   ELEMENT_SELECT_REMOVE: 'select-remove',
+
+  EVENT_CLICK: 'click',
+  EVENT_KEYDOWN: 'keydown',
+  EVENT_SELECT_OPEN: 'select-open',
+  EVENT_SELECT_CLOSE: 'select-close',
 
   ATTRIBUTES_COMMON: 'common',
 
