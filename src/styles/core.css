@@ -1,5 +1,5 @@
 /**
- * All the necessary styles for a select-multiple package
+ * All the necessary styles for the select-multiple package
  */
 
 select-multiple *, select-multiple *::before, select-multiple *::after {
@@ -77,6 +77,11 @@ select-multiple select-input select-tag:first-child {
   margin-left: calc(-1 * var(--select-multiple-tag-gap));
 }
 
+select-multiple select-input select-tag:focus-within {
+  color: var(--select-multiple-font-invert-color);
+  background: Highlight;
+}
+
 select-multiple select-input select-tag {
   display: flex;
   align-items: center;
@@ -102,8 +107,7 @@ select-multiple select-input select-tag select-remove {
 }
 
 select-multiple select-input select-tag select-remove:focus-visible {
-  outline: 2px solid var(--select-multiple-font-color);
-  border-radius: 3px;
+  outline: none;
 }
 
 select-multiple select-list {
@@ -141,9 +145,9 @@ select-multiple select-list select-item[data-visible="false"] {
 }
 
 select-multiple select-list select-item:focus-visible {
-  outline: 2px solid var(--select-multiple-font-color);
-  outline-offset: -1px;
-  border-radius: 3px;
+  color: var(--select-multiple-font-invert-color);
+  background: Highlight;
+  outline: none;
 }
 
 select-multiple select-list select-item:hover {

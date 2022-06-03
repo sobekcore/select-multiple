@@ -7,7 +7,7 @@ module.exports = {
   mode: 'production',
   entry: join(ROOT_PATH, 'src/index.js'),
   output: {
-    path: ROOT_PATH,
+    path: join(ROOT_PATH, 'library'),
     filename: 'index.js',
     library: 'SelectMultiple',
     libraryExport: 'default',

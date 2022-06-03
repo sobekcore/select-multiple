@@ -27,7 +27,12 @@ select-tag:first-child {
 
 select-remove {
   font-size: 24px;
-  line-height: 18px;
+  line-height: 24px;
+}
+
+select-item:focus-visible {
+  color: var(--select-multiple-custom-font-color);
+  background: var(--select-multiple-custom-background-color);
 }
 
 select-item:hover {

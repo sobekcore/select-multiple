@@ -5,6 +5,14 @@ import { SelectItem } from '@/modules/select-builder/elements/select-item';
 import { SelectTag } from '@/modules/select-builder/elements/select-tag';
 import { SelectRemove } from '@/modules/select-builder/elements/select-remove';
 
+const preventRemoveElementFocus = (event) => {
+  event.preventDefault();
+
+  if (document.activeElement.tagName.toLowerCase() === Enums.ELEMENT_SELECT_REMOVE) {
+    document.activeElement.blur();
+  }
+};
+
 const createSelectListItems = (instances, config) => {
   const select = instances[Enums.ELEMENT_SELECT_BASE];
   const input = instances[Enums.ELEMENT_SELECT_INPUT];
@@ -45,9 +53,15 @@ const createSelectListItems = (instances, config) => {
       const remove = new SelectRemove(SelectRemoveAttributes);
       tag.element.append(remove.element);
 
+      /**
+       * A hacky solution to prevent enabling :focus-visible styles on click
+       */
+      remove.element.addEventListener(Enums.EVENT_MOUSEDOWN, preventRemoveElementFocus);
+
       remove.element.addEventListener(Enums.EVENT_CLICK, () => {
         item.visibility(true);
         option.removeAttribute('selected');
+        remove.element.removeEventListener(Enums.EVENT_MOUSEDOWN, preventRemoveElementFocus);
         tag.remove();
       }, { once: true });
     });
