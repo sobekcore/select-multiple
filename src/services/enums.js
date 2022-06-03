@@ -17,6 +17,7 @@ const Enums = {
   ELEMENT_SELECT_REMOVE: 'select-remove',
 
   EVENT_CLICK: 'click',
+  EVENT_MOUSEDOWN: 'mousedown',
   EVENT_KEYDOWN: 'keydown',
   EVENT_SELECT_OPEN: 'select-open',
   EVENT_SELECT_CLOSE: 'select-close',
