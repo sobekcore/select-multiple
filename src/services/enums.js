@@ -24,11 +24,13 @@ const Enums = {
 
   ATTRIBUTES_COMMON: 'common',
 
-  ATTRIBUTE_ROLE: 'role',
+  ATTRIBUTE_ARIA_LABEL: 'aria-label',
+  ATTRIBUTE_ARIA_HIDDEN: 'aria-hidden',
   ATTRIBUTE_VALUE: 'data-value',
   ATTRIBUTE_VISIBILITY: 'data-visible',
   ATTRIBUTE_LOADING: 'data-loading',
   ATTRIBUTE_PLACEHOLDER: 'data-placeholder',
+  ATTRIBUTE_ROLE: 'role',
   ATTRIBUTE_TABINDEX: 'tabindex',
   ATTRIBUTE_TEXT: 'text',
   ATTRIBUTE_HTML: 'html',

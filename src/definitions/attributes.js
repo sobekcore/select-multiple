@@ -58,6 +58,10 @@ const Attributes = {
   [Enums.ELEMENT_SELECT_REMOVE]: {
     [Enums.ATTRIBUTES_COMMON]: [
       {
+        name: Enums.ATTRIBUTE_ARIA_HIDDEN,
+        value: true,
+      },
+      {
         name: Enums.ATTRIBUTE_TABINDEX,
         value: -1,
       },

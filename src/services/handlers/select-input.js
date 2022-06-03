@@ -33,7 +33,7 @@ const setupEventsForSelectInput = (instances, config) => {
         event.stopPropagation();
 
         const itemElements = list.getChildrenByAttribute(Enums.ATTRIBUTE_VISIBILITY, 'true');
-        itemElements[currentlyFocusedItem].focus();
+        if (itemElements.length !== 0) itemElements[currentlyFocusedItem].focus();
       }
     }
   });
@@ -60,12 +60,19 @@ const setupEventsForSelectInput = (instances, config) => {
       if (event.code === Enums.KEYCODE_ENTER) {
         if (currentlyFocusedElement === Enums.ELEMENT_SELECT_ITEM) {
           if (itemElements[currentlyFocusedItem] instanceof HTMLElement) {
-            itemElements[currentlyFocusedItem].click();
+            setTimeout(() => {
+              itemElements[currentlyFocusedItem].click();
+              if (itemElements.length === 1) list.visibility(false);
+            });
 
             if (currentlyFocusedItem < itemElements.length - 1) {
               const nextItemToFocus = currentlyFocusedItem + 1;
               itemElements[nextItemToFocus].focus();
               currentlyFocusedElement = Enums.ELEMENT_SELECT_ITEM;
+            }
+
+            if (itemElements.length === 1) {
+              input.focus();
             }
           }
         }
@@ -80,6 +87,10 @@ const setupEventsForSelectInput = (instances, config) => {
                 const nextRemoveToFocus = currentlyFocusedRemove + 1;
                 removeElements[nextRemoveToFocus].focus();
                 currentlyFocusedElement = Enums.ELEMENT_SELECT_REMOVE;
+              }
+
+              if (removeElements.length === 1) {
+                input.focus();
               }
             });
           }
