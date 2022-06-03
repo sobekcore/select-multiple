@@ -22,8 +22,12 @@ const createSelectListItems = (instances, config) => {
 
   for (const option of options) {
     const SelectItemAttributes = Attributes[Enums.ELEMENT_SELECT_ITEM];
-    SelectItemAttributes[Enums.ATTRIBUTES_COMMON].push({ name: Enums.ATTRIBUTE_VALUE, value: option.value });
     SelectItemAttributes[Enums.ATTRIBUTE_TEXT] = option.innerText;
+
+    SelectItemAttributes[Enums.ATTRIBUTES_COMMON].push({
+      name: Enums.ATTRIBUTE_VALUE,
+      value: option.value,
+    });
 
     /**
      * @var {SelectItem}
@@ -47,6 +51,11 @@ const createSelectListItems = (instances, config) => {
       const SelectRemoveAttributes = Attributes[Enums.ELEMENT_SELECT_REMOVE];
       SelectRemoveAttributes[Enums.ATTRIBUTE_HTML] = '&times;';
 
+      SelectRemoveAttributes[Enums.ATTRIBUTES_COMMON].push({
+        name: Enums.ATTRIBUTE_ARIA_LABEL,
+        value: `remove ${option.innerText}`,
+      });
+
       /**
        * @var {SelectRemove}
        */
@@ -58,10 +67,11 @@ const createSelectListItems = (instances, config) => {
        */
       remove.element.addEventListener(Enums.EVENT_MOUSEDOWN, preventRemoveElementFocus);
 
-      remove.element.addEventListener(Enums.EVENT_CLICK, () => {
-        item.visibility(true);
-        option.removeAttribute('selected');
+      remove.element.addEventListener(Enums.EVENT_CLICK, (event) => {
+        if (event.pointerType === 'mouse') input.focus();
         remove.element.removeEventListener(Enums.EVENT_MOUSEDOWN, preventRemoveElementFocus);
+        option.removeAttribute('selected');
+        item.visibility(true);
         tag.remove();
       }, { once: true });
     });
